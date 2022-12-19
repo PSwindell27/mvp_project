@@ -3,10 +3,11 @@ import postgres from "postgres";
 import morgan from "morgan";
 import dotenv from "dotenv";
 
-dotenv.config;
-// console.log(process.env.DATABASE_URL);
+
+dotenv.config();
+
 const sql = postgres(process.env.DATABASE_URL);
-// process.env.DATABASE_URL
+console.log(process.env.DATABASE_URL);
 
 const app = express();
 const port = 3000;
