@@ -1,18 +1,18 @@
 import express from "express";
 import postgres from "postgres";
 import morgan from "morgan";
-// import dotenv from "dotenv";
+import dotenv from "dotenv";
 
-// dotenv.config;
+dotenv.config;
 // console.log(process.env.DATABASE_URL);
-const sql = postgres({database: "mvp"});
+const sql = postgres(process.env.DATABASE_URL);
 // process.env.DATABASE_URL
 
 const app = express();
 const port = 3000;
 app.use(express.json());
 app.use(morgan("tiny"));
-// app.use(express.static("./client"));
+app.use(express.static("./client"));
 
 
 /*=======================Retrieve All Table Information=======================*/
