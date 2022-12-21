@@ -83,12 +83,12 @@ app.get("/api/account/:id", (req, res, next) =>{
 
  /*======================Post Methods=====================================*/
 
- app.post("/api/account", (req, res) =>{
+ app.post("/api/account", (req, res, next) =>{
     const {first_name, last_name, email, username} = req.body;
     sql`INSERT INTO account (first_name, last_name, email, username) VALUES (${first_name}, ${last_name}, ${email}, ${username}) RETURNING *`
     .then((result) => {
-        res.send(result[0]);
-    });
+        res.send(result[0])
+    }).catch(next)
 });
 
  /*======================Patch Code block=====================================*/
