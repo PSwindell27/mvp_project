@@ -1,0 +1,16 @@
+html,body{
+    background-color: tan;
+}
+.search{
+    border-radius: 8%;
+    justify-content: end;
+    margin-left: 40%;
+}
+.container2{
+    background-color: aqua;
+    border-radius: 15%;
+}
+.card1{
+    border-color: black;
+    border-block-width: 2px;
+}

@@ -2,6 +2,7 @@ import express from "express";
 import postgres from "postgres";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import cors from "cors";
 
 
 dotenv.config();
@@ -11,6 +12,7 @@ console.log(process.env.DATABASE_URL);
 
 const app = express();
 const port = 3000;
+app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(express.static("./client"));
@@ -19,8 +21,8 @@ app.use(express.static("./client"));
 /*=======================Retrieve All Table Information=======================*/
 app.get("/api/account", (req, res, next) => {
     sql`SELECT * FROM account`.then((result) => {
-        console.log(result)
-        res.json(result);
+        // console.log(result)
+        res.send(result);
     }).catch(next);
 });
 // app.get("/api/friends", (req, res, next) => {
@@ -81,26 +83,12 @@ app.get("/api/account/:id", (req, res, next) =>{
 
  /*======================Post Methods=====================================*/
 
- app.post("/api/account", (req, res, next) =>{
-    const entry = req.body;
-    const requiredFields = ["first_name", "last_name", "email", "username"];
-    const errors = [];
-
-    for(let field of requiredFields){
-        if(entry[field] === undefined){
-            errors.push(`Missing User: '${field}'.`);
-        }
-        const { first_name, last_name, email, username } = entry;
-        if(errors.length > 0){
-            res.status(422);
-            res.send(errors.join(" "));
-        }else{
-            sql`INSERT INTO account (first_name, last_name, email, username) VALUES (${first_name}, ${last_name}, ${email}, ${username}) RETURNING *`.then(result => {
-                res.status(201);
-                res.json(result[0]);
-            }).catch(next);
-        }
-    }
+ app.post("/api/account", (req, res) =>{
+    const {first_name, last_name, email, username} = req.body;
+    sql`INSERT INTO account (first_name, last_name, email, username) VALUES (${first_name}, ${last_name}, ${email}, ${username}) RETURNING *`
+    .then((result) => {
+        res.send(result[0]);
+    });
 });
 
  /*======================Patch Code block=====================================*/

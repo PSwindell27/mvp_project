@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <title>MVP Project</title>
-    <script defer src="app.js"></script>
+    <script defer src="app1.js"></script>
 </head>
 <body>
     <section class="vh-100 bg-image"
@@ -20,25 +20,30 @@
               <div class="card-body p-5">
                 <h2 class="text-uppercase text-center mb-5">Create an account</h2>
   
-                <form>
+                <form class="create-user-form">
   
                   <div class="form-outline mb-1">
-                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="firstName"/>
                     <label class="form-label" for="form3Example1cg">First Name</label>
                   </div>
   
                   <div class="form-outline mb-2">
-                    <input type="text" id="form3Example3cg" class="form-control form-control-lg" />
+                    <input type="text" id="form3Example2cg" class="form-control form-control-lg" name="lastName"/>
                     <label class="form-label" for="form3Example3cg">Last Name</label>
                   </div>
   
                   <div class="form-outline mb-3">
-                    <input type="email" id="form3Example4cg" class="form-control form-control-lg" />
+                    <input type="email" id="form3Example3cg" class="form-control form-control-lg" name="email"/>
                     <label class="form-label" for="form3Example4cg">Your Email</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example4cg" class="form-control form-control-lg" name="userName"/>
+                    <label class="form-label" for="form3Example4cg">Create A Username</label>
                   </div>
   
                   <div class="d-flex justify-content-center">
-                    <button type="button"
+                    <button type="submit"
                       class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                   </div>
   
