@@ -3,7 +3,7 @@ fetch("/api/account")
 .then((data) => {
     console.log(data)
 });
-
+// const login = document.querySelector(".d-flex justify-content-center");
 const createUserForm = document.querySelector(".create-user-form");
 
 // const firstName = document.querySelector("#form3Example1cg");
@@ -17,7 +17,7 @@ debugger;
     const login = { firstName: data.get("firstName"), email: data.get("email") };
     const {firstName, email} = login;
     console.log(firstName, email);
-    
+    window.open(index3.html);
     
     fetch("http://localhost:3000/api/account").then((data) =>{
         console.log(data);
